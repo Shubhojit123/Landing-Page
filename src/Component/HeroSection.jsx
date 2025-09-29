@@ -55,7 +55,7 @@ function HeroSection() {
                         </Typography>
                     </motion.div>
 
-                    <Typography variant="h2" fontWeight="normal">
+                    <Typography variant="h2" fontWeight="normal" sx={{xs: { fontSize: '2.5rem', sm: '3.5rem', md: '4.5rem' }}}>
                         Transport Management System
                     </Typography>
 
