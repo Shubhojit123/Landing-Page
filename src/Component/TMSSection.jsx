@@ -2,6 +2,7 @@ import React from "react";
 import {
     Box,
     Container,
+    Grid,
     Stack,
     Typography,
     Card,
@@ -10,11 +11,12 @@ import {
     CardMedia,
 } from "@mui/material";
 import tmsImage from "../assets/Instalanes-TMS-Process.svg";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import images from "../assets/index"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import images from "../assets/index";
 
 function TMSSection() {
-    const tmsImage2 = images.tmsImage
+    const tmsImage2 = images.tmsImage;
+
     const features = [
         {
             id: 1,
@@ -52,11 +54,10 @@ function TMSSection() {
                 "Configurable rules for automated carrier selection.",
             ],
         },
-       
     ];
 
     const features2 = [
-         {
+        {
             id: 4,
             title: "Shipments and tracking",
             description:
@@ -70,169 +71,186 @@ function TMSSection() {
         },
         {
             id: 5,
-            title: "Shipments and tracking",
+            title: "Freight Audit",
             description:
-                "Gain end-to-end shipment visibility with real-time tracking and updates.",
+                "Ensure accurate freight billing and eliminate payment discrepancies.",
             points: [
-                "Carrier comparison based on cost, performance, and capacity.",
-                "AI-powered recommendations for cost-effective decisions.",
-                "Instant rate negotiation and contract management.",
-                "Configurable rules for automated carrier selection.",
+                "Automated invoice matching.",
+                "Error detection and dispute management.",
+                "Detailed audit reporting.",
+                "Integrated financial workflows.",
             ],
         },
         {
             id: 6,
-            title: "Shipments and tracking",
+            title: "Analytics & Reporting",
             description:
-                "Gain end-to-end shipment visibility with real-time tracking and updates.",
+                "Make smarter decisions with actionable insights from your TMS data.",
             points: [
-                "Carrier comparison based on cost, performance, and capacity.",
-                "AI-powered recommendations for cost-effective decisions.",
-                "Instant rate negotiation and contract management.",
-                "Configurable rules for automated carrier selection.",
+                "Real-time dashboards for KPIs.",
+                "Customizable reporting templates.",
+                "Predictive analytics for forecasting.",
+                "Drill-down insights for cost control.",
             ],
         },
-    ]
+    ];
 
     return (
         <Box sx={{ bgcolor: "#f4f4f4", py: { xs: 6, sm: 12 } }}>
             <Container maxWidth="lg">
+                {/* Header */}
                 <Stack spacing={3} mb={6} textAlign={{ xs: "center", md: "left" }}>
                     <Typography variant="h5" color="primary">
                         Digital TMS platform solutions
                     </Typography>
                     <Typography variant="h4">
-                        Instalanes digitizes your entire transportation process, solving real
-                        industry challenges
+                        Instalanes digitizes your entire transportation process, solving
+                        real industry challenges
                     </Typography>
                     <Box>
                         <Box
                             component="img"
                             src={tmsImage}
                             alt="TMS Process"
-                            sx={{ width: "100%",  mx: "auto" }}
+                            sx={{ width: "100%", mx: "auto" }}
                         />
                     </Box>
-                </Stack>
 
-               <Box spacing={4} mb={6}>
-                 <Stack
+                {/* First Row */}
+                <Grid
+                    container
                     spacing={4}
-                    justifyContent="space-between"
-                    sx={{ flexWrap: "wrap" }}
-                    direction={{ xs: "column", sm: "row" }}
+                    justifyContent="center"
                 >
                     {features.map((feature) => (
-                        <Card
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
                             key={feature.id}
-                            sx={{
-                                flex: "1 1 calc(33.333% - 16px)", 
-                                maxWidth: 345,
-                            }}
+                            display="flex"
+                            justifyContent="center"
                         >
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={tmsImage2}
-                                    alt={feature.title}
-                                />
-                                <CardContent>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="div"
-                                        sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            gap: 1,
-                                            fontWeight: "bold",
-                                            justifyContent: "space-between",
-                                        }}
-                                    >
-                                        {feature.title}
-                                        <ArrowForwardIcon />
-                                    </Typography>
-                                    <Typography variant="body2" sx={{ mb: 1 }}>
-                                        {feature.description}
-                                    </Typography>
-                                    <Box component="ul" sx={{ pl: 2, m: 0 }}>
-                                        {feature.points.map((point, idx) => (
-                                            <Typography
-                                                key={idx}
-                                                component="li"
-                                                variant="caption"
-                                                sx={{ listStyleType: "disc" }}
-                                            >
-                                                {point}
-                                            </Typography>
-                                        ))}
-                                    </Box>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
+                            <Card sx={{ width: "100%", maxWidth: 320, height: "100%" }}>
+                                <CardActionArea
+                                    sx={{
+                                        height: "100%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        height="160"
+                                        image={tmsImage2}
+                                        alt={feature.title}
+                                    />
+                                    <CardContent>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h6"
+                                            component="div"
+                                            sx={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "space-between",
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            {feature.title}
+                                            <ArrowForwardIcon fontSize="small" />
+                                        </Typography>
+                                        <Typography variant="body2" sx={{ mb: 1 }}>
+                                            {feature.description}
+                                        </Typography>
+                                        <Box component="ul" sx={{ pl: 2, m: 0 }}>
+                                            {feature.points.map((point, idx) => (
+                                                <Typography
+                                                    key={idx}
+                                                    component="li"
+                                                    variant="caption"
+                                                    sx={{ listStyleType: "disc" }}
+                                                >
+                                                    {point}
+                                                </Typography>
+                                            ))}
+                                        </Box>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
                     ))}
-                </Stack>
-                 <Stack
-                    direction={{ xs: "column", sm: "row" }}
+                </Grid>
+
+
+                <Grid
+                    container
                     spacing={4}
-                    justifyContent="space-between"
-                    sx={{ flexWrap: "wrap", mt:4 }}
+                    justifyContent="center"
                 >
                     {features2.map((feature) => (
-                        <Card
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
                             key={feature.id}
-                            sx={{
-                                flex: "1 1 calc(33.333% - 16px)", 
-                                maxWidth: 345,
-                            }}
+                            display="flex"
+                            justifyContent="center"
                         >
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={tmsImage2}
-                                    alt={feature.title}
-                                />
-                                <CardContent>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="div"
-                                        sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            gap: 1,
-                                            fontWeight: "bold",
-                                            justifyContent: "space-between",
-                                        }}
-                                    >
-                                        {feature.title}
-                                        <ArrowForwardIcon />
-                                    </Typography>
-                                    <Typography variant="body2" sx={{ mb: 1 }}>
-                                        {feature.description}
-                                    </Typography>
-                                    <Box component="ul" sx={{ pl: 2, m: 0 }}>
-                                        {feature.points.map((point, idx) => (
-                                            <Typography
-                                                key={idx}
-                                                component="li"
-                                                variant="caption"
-                                                sx={{ listStyleType: "disc" }}
-                                            >
-                                                {point}
-                                            </Typography>
-                                        ))}
-                                    </Box>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
+                            <Card sx={{ width: "100%", maxWidth: 320, height: "100%" }}>
+                                <CardActionArea
+                                    sx={{
+                                        height: "100%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        height="160"
+                                        image={tmsImage2}
+                                        alt={feature.title}
+                                    />
+                                    <CardContent>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h6"
+                                            component="div"
+                                            sx={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "space-between",
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            {feature.title}
+                                            <ArrowForwardIcon fontSize="small" />
+                                        </Typography>
+                                        <Typography variant="body2" sx={{ mb: 1 }}>
+                                            {feature.description}
+                                        </Typography>
+                                        <Box component="ul" sx={{ pl: 2, m: 0 }}>
+                                            {feature.points.map((point, idx) => (
+                                                <Typography
+                                                    key={idx}
+                                                    component="li"
+                                                    variant="caption"
+                                                    sx={{ listStyleType: "disc" }}
+                                                >
+                                                    {point}
+                                                </Typography>
+                                            ))}
+                                        </Box>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
                     ))}
-                </Stack>
-               </Box>
+                </Grid>
+                                </Stack>
 
-                
 
             </Container>
         </Box>
@@ -240,3 +258,4 @@ function TMSSection() {
 }
 
 export default TMSSection;
+

@@ -9,6 +9,10 @@ import TMSSection2 from "./Component/TMSSection2";
 import Footer from "./Component/Footer";
 import { Box } from "@mui/material";
 import Testimonials from "./Component/Testimonials";
+import FeaturesSection from "./Component/FeaturesSection";
+import FeaturedBlogs from "./Component/FeaturedBlogs";
+import CTASection from "./Component/CTASection";
+import ContactForm from "./Component/ContactForm";
 
 function App() {
   return (
@@ -22,7 +26,11 @@ function App() {
       <ChallengeSection />
       <TMSSection />
       <TMSSection2 />
+      <FeaturesSection/>
       <Testimonials/>
+      <FeaturedBlogs/>
+      <CTASection/>
+      <ContactForm/>
       <Footer />
     </Box>
   );
