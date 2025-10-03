@@ -35,18 +35,19 @@ export default function SubHeroSection() {
   }, []);
 
   return (
-    <Box sx={{ bgcolor: "#e0e0e0", py: { xs: 8, sm: 12 } }}>
+    <Box bgcolor="grey.300" py={{ xs: 8, sm: 12 }}>
       <Container maxWidth="lg">
         {!isTab && (
           <Stack spacing={4} alignItems="flex-start" textAlign="left">
             <Typography variant="h5" color="primary">
-              Instalanes TMS - the all-in-one unified platform for transportation
-              logistics
+              Instalanes TMS - the all-in-one unified platform for transportation logistics
             </Typography>
-            <Typography variant="h4" fontWeight="normal">
+
+            <Typography variant="h4">
               Simplify and digitize FCL, FTL, PTL, ODC, and warehouse shipments
               with a unified TMS for Shippers, Carriers, 3PLs, and LSPs
             </Typography>
+
             <Stack
               direction="row"
               spacing={1}
@@ -54,25 +55,23 @@ export default function SubHeroSection() {
               divider={<Divider orientation="vertical" flexItem />}
             >
               {steps.map((step, index) => (
-                <Stack key={step.id} direction="row" alignItems="center" spacing={0}>
-                  <Paper
-                    elevation={3}
-                    sx={{
-                      px: 4,
-                      py: 3,
-                      minWidth: 160,
-                      textAlign: "center",
-                      bgcolor: "black",
-                      color: "white",
-                      borderRadius: 2,
-                      transform: "scale(1.1)",
-                    }}
-                  >
-                    <Typography variant="h6">{step.id}</Typography>
-                    <Typography variant="body2">{step.title}</Typography>
+                <Stack key={step.id} direction="row" alignItems="center">
+                  <Paper elevation={3} square={false}>
+                    <Stack
+                      spacing={1}
+                      alignItems="center"
+                      justifyContent="center"
+                      p={3}
+                      minWidth={160}
+                      bgcolor="black"
+                      color="white"
+                    >
+                      <Typography variant="h6">{step.id}</Typography>
+                      <Typography variant="body2">{step.title}</Typography>
+                    </Stack>
                   </Paper>
                   {index < steps.length - 1 && (
-                    <EastIcon sx={{ fontSize: "25px", fontWeight: "bold" }} />
+                    <EastIcon fontSize="medium" />
                   )}
                 </Stack>
               ))}
@@ -83,30 +82,30 @@ export default function SubHeroSection() {
         {isTab && (
           <Stack spacing={4} textAlign="left">
             <Typography variant="h5" color="primary">
-              Instalanes TMS - the all-in-one unified platform for transportation
-              logistics
+              Instalanes TMS - the all-in-one unified platform for transportation logistics
             </Typography>
-            <Typography variant="h4" fontWeight="normal">
+
+            <Typography variant="h4">
               Simplify and digitize FCL, FTL, PTL, ODC, and warehouse shipments
               with a unified TMS for Shippers, Carriers, 3PLs, and LSPs
             </Typography>
-            <Grid container spacing={3} alignItems="center" justifyContent="center">
+
+            <Grid container spacing={3} alignItems="stretch" justifyContent="center">
               {steps.map((step) => (
                 <Grid item key={step.id} xs={12} sm={6}>
-                  <Paper
-                    elevation={3}
-                    sx={{
-                      px: 4,
-                      py: 3,
-                      textAlign: "center",
-                      bgcolor: "black",
-                      color: "white",
-                      borderRadius: 2,
-                      height: "100%",
-                    }}
-                  >
-                    <Typography variant="h6">{step.id}</Typography>
-                    <Typography variant="body2">{step.title}</Typography>
+                  <Paper elevation={3} square={false}>
+                    <Stack
+                      spacing={1}
+                      alignItems="center"
+                      justifyContent="center"
+                      p={3}
+                      bgcolor="black"
+                      color="white"
+                      height="100%"
+                    >
+                      <Typography variant="h6">{step.id}</Typography>
+                      <Typography variant="body2">{step.title}</Typography>
+                    </Stack>
                   </Paper>
                 </Grid>
               ))}

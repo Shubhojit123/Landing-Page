@@ -56,18 +56,13 @@ function NavBar() {
       <AppBar
         component="nav"
         position="fixed" 
-        sx={{
-          bgcolor: "black",
-          top: 0,
-          zIndex: (theme) => theme.zIndex.appBar,
-        }}
+        
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Box component="img" src={logo} alt="logo" sx={{ height: 30, mr: 1 }} />
               <Typography variant="h6" sx={{ fontWeight: "normal" }}>
-                instalanes
+                Instalanes
               </Typography>
             </Box>
 

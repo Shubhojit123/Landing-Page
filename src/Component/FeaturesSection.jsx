@@ -1,11 +1,11 @@
-
 import React from "react";
 import {
   Box,
   Container,
-  Typography,
-  Paper,
+  Card,
+  CardContent,
   Stack,
+  Typography,
 } from "@mui/material";
 import {
   Smartphone,
@@ -23,7 +23,7 @@ import {
   Zap,
   UserCheck,
   Globe,
-} from "lucide-react"; 
+} from "lucide-react";
 
 const features = [
   { icon: Smartphone, title: "Mobile driven", description: "Run logistics anytime, anywhere effortlessly" },
@@ -45,9 +45,9 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <Box sx={{ bgcolor: "background.paper", py: { xs: 6, sm: 10 } }}>
+    <Box bgcolor="background.paper" py={{ xs: 6, sm: 10 }}>
       <Container maxWidth="lg">
-        <Stack spacing={2} textAlign="left" mb={6}>
+        <Stack spacing={2} mb={6}>
           <Typography variant="h6" color="primary">
             Features
           </Typography>
@@ -56,37 +56,33 @@ export default function FeaturesSection() {
           </Typography>
         </Stack>
 
+        {/* Responsive CSS Grid for 5 cards per row on large screens */}
         <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(5, 1fr)" },
-            gap: 1,
+          display="grid"
+          gridTemplateColumns={{
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(5, 1fr)", 
           }}
+          gap={3}
         >
           {features.map((feature, index) => {
             const IconComp = feature.icon;
             return (
-              <Paper
-                key={index}
-                elevation={0}
-                sx={{
-                  p: 3,
-                  border: "1px solid",
-                  borderColor: "grey.300",
-                  borderRadius: 2,
-                  height: "100%",
-                }}
-              >
-                <Stack spacing={2} alignItems="flex-start">
-                  <IconComp size={28} sx={{color:"#000000ff"}} />
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {feature.description}
-                  </Typography>
-                </Stack>
-              </Paper>
+              <Card variant="outlined" key={index} sx={{ height: "100%" }}>
+                <CardContent>
+                  <Stack spacing={2}>
+                    <IconComp size={28} color="#000" />
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      {feature.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {feature.description}
+                    </Typography>
+                  </Stack>
+                </CardContent>
+              </Card>
             );
           })}
         </Box>
@@ -94,4 +90,3 @@ export default function FeaturesSection() {
     </Box>
   );
 }
-

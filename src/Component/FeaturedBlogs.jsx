@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import {
   Box,
@@ -16,25 +14,24 @@ import {
 import Img1 from "../assets/Uber-Freight-Quarterly-Market-Update-Report-2-944x500-1-300x159.jpg";
 import Img2 from "../assets/UFTMSVideoCover-e1722632758987-1440x759-1-300x158.jpg";
 
-
 const blogs = [
   {
     title: "Deliver 2024 fostering innovation and impact",
     date: "September 11, 2024",
     category: "FREIGHT",
-    image: Img1 
+    image: Img1,
   },
   {
     title: "Embracing efficiency with TMS implementation",
     date: "August 19, 2024",
     category: "FREIGHT",
-    image: Img2, 
+    image: Img2,
   },
   {
     title: "Freight market update: Q3 – August 2024",
     date: "August 19, 2024",
     category: "FREIGHT",
-    image: Img1
+    image: Img1,
   },
 ];
 
@@ -111,4 +108,3 @@ export default function FeaturedBlogs() {
     </Box>
   );
 }
-

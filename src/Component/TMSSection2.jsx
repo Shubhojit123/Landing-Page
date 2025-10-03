@@ -6,7 +6,6 @@ import {
   Stack,
   Typography,
   Card,
-  CardActionArea,
   CardContent,
   CardMedia,
 } from "@mui/material";
@@ -58,30 +57,6 @@ function TMSSection2() {
 
   const features2 = [
     {
-      id: 4,
-      title: "Shipments and tracking",
-      description:
-        "Gain end-to-end shipment visibility with real-time tracking and updates.",
-      points: [
-        "Carrier comparison based on cost, performance, and capacity.",
-        "AI-powered recommendations for cost-effective decisions.",
-        "Instant rate negotiation and contract management.",
-        "Configurable rules for automated carrier selection.",
-      ],
-    },
-    {
-      id: 5,
-      title: "Freight Audit",
-      description:
-        "Ensure accurate freight billing and eliminate payment discrepancies.",
-      points: [
-        "Automated invoice matching.",
-        "Error detection and dispute management.",
-        "Detailed audit reporting.",
-        "Integrated financial workflows.",
-      ],
-    },
-    {
       id: 6,
       title: "Analytics & Reporting",
       description:
@@ -93,9 +68,6 @@ function TMSSection2() {
         "Drill-down insights for cost control.",
       ],
     },
-  ];
-
-  const features3 = [
     {
       id: 7,
       title: "Extra Feature 1",
@@ -111,20 +83,7 @@ function TMSSection2() {
     {
       id: 8,
       title: "Extra Feature 2",
-      description:
-        "Additional functionality for better optimization.",
-      points: [
-        "Custom logic for scaling.",
-        "Integrations with ERP systems.",
-        "Cost management automation.",
-        "Performance monitoring.",
-      ],
-    },
-    {
-      id: 9,
-      title: "Extra Feature 2",
-      description:
-        "Additional functionality for better optimization.",
+      description: "Additional functionality for better optimization.",
       points: [
         "Custom logic for scaling.",
         "Integrations with ERP systems.",
@@ -141,57 +100,50 @@ function TMSSection2() {
           item
           xs={12}
           sm={6}
-          md={4}
+          md={3}
           key={feature.id}
           display="flex"
           justifyContent="center"
         >
-          <Card sx={{ width: "100%", maxWidth: 320, height: "100%" }}>
-            <CardActionArea
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <CardMedia
-                component="img"
-                height="160"
-                image={tmsImage2}
-                alt={feature.title}
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h6"
-                  component="div"
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {feature.title}
-                  <ArrowForwardIcon fontSize="small" />
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 1 }}>
-                  {feature.description}
-                </Typography>
-                <Box component="ul" sx={{ pl: 2, m: 0 }}>
-                  {feature.points.map((point, idx) => (
-                    <Typography
-                      key={idx}
-                      component="li"
-                      variant="caption"
-                      sx={{ listStyleType: "disc" }}
-                    >
-                      {point}
-                    </Typography>
-                  ))}
-                </Box>
-              </CardContent>
-            </CardActionArea>
+          {/* ✅ Outlined, non-clickable Card */}
+          <Card variant="outlined" sx={{ width: "100%", maxWidth: 280, height: "100%" }}>
+            <CardMedia
+              component="img"
+              height="160"
+              image={tmsImage2}
+              alt={feature.title}
+            />
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant="h6"
+                component="div"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  fontWeight: "bold",
+                }}
+              >
+                {feature.title}
+                <ArrowForwardIcon fontSize="small" />
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 1 }}>
+                {feature.description}
+              </Typography>
+              <Box component="ul" sx={{ pl: 2, m: 0 }}>
+                {feature.points.map((point, idx) => (
+                  <Typography
+                    key={idx}
+                    component="li"
+                    variant="caption"
+                    sx={{ listStyleType: "disc" }}
+                  >
+                    {point}
+                  </Typography>
+                ))}
+              </Box>
+            </CardContent>
           </Card>
         </Grid>
       ))}
@@ -199,9 +151,8 @@ function TMSSection2() {
   );
 
   return (
-    <Box sx={{ bgcolor: "#f4f4f4", py: { xs: 6, sm: 12 } }}>
+    <Box sx={{  py: { xs: 6, sm: 12 } }}>
       <Container maxWidth="lg">
-        {/* Header */}
         <Stack spacing={3} mb={6} textAlign={{ xs: "center", md: "left" }}>
           <Typography variant="h5" color="primary">
             Digital TMS platform solutions
@@ -220,10 +171,8 @@ function TMSSection2() {
           </Box>
         </Stack>
 
-        {/* Rows */}
         {renderFeatures(features1)}
         {renderFeatures(features2)}
-        {renderFeatures(features3)}
       </Container>
     </Box>
   );
